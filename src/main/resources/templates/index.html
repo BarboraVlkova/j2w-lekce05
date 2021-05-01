@@ -86,6 +86,8 @@
         </div>
     </form>
 
+<!--  SMAZANI  -->
+<!--  hidden =  políčko tam má být, ale uživateli se nezobrazí -->
     <h2 class="mt-5 mb-3">Delete person</h2>
     <form class="row g-3" th:action="@{/}" method="post">
         <input name="id" type="hidden" value="0"/>
@@ -93,6 +95,7 @@
             <button type="submit" class="btn btn-primary">Delete</button>
         </div>
     </form>
+
 </div>
 </body>
 </html>

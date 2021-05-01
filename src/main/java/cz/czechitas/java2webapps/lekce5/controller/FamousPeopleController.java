@@ -49,14 +49,14 @@ public class FamousPeopleController {
   }
 
   // metoda, která vrací úvodní stránku v prohlížeči
+  // redirect = přesměrování stránky: vložená adresa, kam se má přesměrovat
   @PostMapping(value = "/", params = {"givenName", "lastName", "birthDate"})
   public String append(Person person) {
     people.add(person);
-
     return "redirect:/";
   }
 
-// redirect = přesměrování stránky: vložená adresa, kam se má přesměrovat
+// metoda pro SMAZANI
   @PostMapping(value = "/", params = {"id"})
   public String delete(int id) {
     people.remove(id);
