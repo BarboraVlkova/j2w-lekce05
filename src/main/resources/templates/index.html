@@ -20,6 +20,9 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 </ul>
+
+<!--                zprovoznění vyhledávání v prohlížeči -->
+<!--                v th:value ... query, vypíše se jako Search-->
                 <form class="d-flex" method="get" th:action="@{/}">
                     <input class="form-control me-2" name="query" type="search" placeholder="Search" aria-label="Search" th:value="${query}">
                     <button class="btn btn-outline-light" type="submit">Search</button>
@@ -45,8 +48,24 @@
             <td th:text="${person.lastName}">Person</td>
             <td th:text="${person.birthDate}">1. 1. 1900</td>
         </tr>
+
+        <!--        <tr>-->
+        <!--            <td>2</td>-->
+        <!--            <td>Unknown</td>-->
+        <!--            <td>Person</td>-->
+        <!--            <td>1. 1. 1999</td>-->
+        <!--        </tr>-->
+
         </tbody>
     </table>
+
+    <!--  HTML formulář <form (napíšu form + TAB)  -->
+    <!--  action = (atribut, určuje adresu, kam se má formulář odeslat  -->
+    <!--  input = políčka, které se vyplňují, jsou nějakého typu  -->
+    <!--  label = pojmenování políčka, napíšu Given Name, Last Name... jako popisky políček-->
+    <!--  div = samostatný řádek-->
+    <!--  h2 = nadpis druhé úrovně -->
+    <!--  button = přidá tlačítko -->
 
     <h2 class="mt-5 mb-3">Append new person</h2>
     <form class="row g-3" th:action="@{/}" method="post">

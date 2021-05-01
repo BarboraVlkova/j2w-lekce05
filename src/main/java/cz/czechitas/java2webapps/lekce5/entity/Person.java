@@ -4,24 +4,25 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 
-/**
- * Entita reprezentující osobu.
- */
+// Entita reprezentujici osobu.
+// jsou to FIELDY, ktere jsou ve sloupečcích
 public class Person {
  private String givenName;
  private String lastName;
  private LocalDate birthDate;
 
- 
+ // prázdný konstruktor
  public Person() {
  }
 
+ // konstruktor se všemi fieldy
  public Person(String givenName, String lastName, LocalDate birthDate) {
   this.givenName = givenName;
   this.lastName = lastName;
   this.birthDate = birthDate;
  }
 
+ // gettery a settery
  public String getGivenName() {
   return givenName;
  }
@@ -42,6 +43,9 @@ public class Person {
   return birthDate;
  }
 
+
+ // je to vlastnost Property a dám ho nad gettery i settery, teď ho dáme nad settery
+ // anotace DateFormat a očekávám datum v ISO formě
  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
  public void setBirthDate(LocalDate birthDate) {
   this.birthDate = birthDate;

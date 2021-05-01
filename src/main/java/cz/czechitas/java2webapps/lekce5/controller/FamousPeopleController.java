@@ -21,9 +21,9 @@ public class FamousPeopleController {
 
   public FamousPeopleController() {
     people = new ArrayList<>();
-    people.add(new Person("Angela", "Merkelová", LocalDate.of(1954, 7, 17)));
-    people.add(new Person("Bill", "Gates", LocalDate.of(1955, 10, 28)));
-    people.add(new Person("Greta", "Thunbergová", LocalDate.of(2003, 1, 3)));
+    people.add(new Person("Hermiona","Granger", LocalDate.of(1979,9,19)));
+    people.add(new Person("Ronald","Weasley", LocalDate.of(1980,3,1)));
+    people.add(new Person("Severus","Snape", LocalDate.of(1960,1,9)));
   }
 
   @GetMapping("/")
@@ -33,6 +33,10 @@ public class FamousPeopleController {
     return result;
   }
 
+  // params = metoda vyžaduje tyto parametry
+  // query = v prohlížeči je v adrese q
+  // vezmu seznam, má se postupně procházet, filtrovat / vyfiltrovaný seznam chci zpátky předělat na List
+  // r.47 => mám dotaz, pridám nový prvek do modelu
   @GetMapping(value = "/", params = "query")
   public ModelAndView query(String query) {
     List<Person> filteredPeople = people.stream()
@@ -44,6 +48,7 @@ public class FamousPeopleController {
     return result;
   }
 
+  // metoda, která vrací úvodní stránku v prohlížeči
   @PostMapping(value = "/", params = {"givenName", "lastName", "birthDate"})
   public String append(Person person) {
     people.add(person);
@@ -51,6 +56,7 @@ public class FamousPeopleController {
     return "redirect:/";
   }
 
+// redirect = přesměrování stránky: vložená adresa, kam se má přesměrovat
   @PostMapping(value = "/", params = {"id"})
   public String delete(int id) {
     people.remove(id);
